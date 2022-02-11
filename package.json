@@ -1,5 +1,5 @@
 {
-  "name": "@flash-coffee/react-native-zendesk-messaging",
+  "name": "@flashcoffee/react-native-zendesk-messaging",
   "version": "0.1.0",
   "description": "React Native Library for Zendesk Messaging",
   "main": "lib/commonjs/index",
