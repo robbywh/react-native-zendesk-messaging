@@ -17,6 +17,10 @@ const ZendeskMessaging = NativeModules.ZendeskMessaging
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return ZendeskMessaging.multiply(a, b);
+export function initialize(channelKey: string) {
+  return ZendeskMessaging.initialize(channelKey);
+}
+
+export function showMessaging() {
+  return ZendeskMessaging.showMessaging();
 }

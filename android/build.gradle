@@ -7,7 +7,7 @@ buildscript {
         }
 
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.5.3'
+            classpath("com.android.tools.build:gradle:4.2.2")
         }
     }
 }
@@ -51,9 +51,13 @@ repositories {
     google()
     mavenCentral()
     jcenter()
+    maven {
+        url "https://zendesk.jfrog.io/artifactory/repo"
+    }
 }
 
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "zendesk.messaging:messaging-android:2.1.0"
 }

@@ -1,31 +1,23 @@
 import * as React from 'react';
+import { Text, View, Button, Platform } from 'react-native';
+import Config from 'react-native-config';
+import { initialize, showMessaging } from 'react-native-zendesk-messaging';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-zendesk-messaging';
-
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
+const App = () => {
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    initialize(
+      Platform.OS === 'android'
+        ? Config.CHANNEL_KEY_ANDROID
+        : Config.CHANNEL_KEY_IOS
+    );
   }, []);
-
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View style={{padding: 100}}>
+      <Text style={{marginBottom: 50, textAlign: "center", fontWeight: "bold", fontSize: 20}}>Zendesk Messaging</Text>
+      <Text style={{marginBottom: 10, textAlign: "center"}}>Press The "CHAT" button to test</Text>
+      <Button onPress={() => showMessaging()} title="CHAT" />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+export default App;
