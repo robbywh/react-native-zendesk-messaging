@@ -17,10 +17,44 @@ const ZendeskMessaging = NativeModules.ZendeskMessaging
       }
     );
 
-export function initialize(channelKey: string) {
-  return ZendeskMessaging.initialize(channelKey);
-}
+export const initialize = async (
+  channelKey: string,
+  onSuccess?: () => void,
+  onError?: (err: any) => void
+) => {
+  try {
+    await ZendeskMessaging.initialize(channelKey);
+    onSuccess && onSuccess();
+  } catch (err: any) {
+    onError && onError(err);
+  }
+};
 
-export function showMessaging() {
+export const showMessaging = () => {
   return ZendeskMessaging.showMessaging();
-}
+};
+
+export const loginUser = async (
+  token: string,
+  onSuccess?: (user: any) => void,
+  onError?: (err: any) => void
+) => {
+  try {
+    const user = await ZendeskMessaging.loginUser(token);
+    onSuccess && onSuccess(user);
+  } catch (err: any) {
+    onError && onError(err);
+  }
+};
+
+export const logoutUser = async (
+  onSuccess?: () => void,
+  onError?: (err: any) => void
+) => {
+  try {
+    await ZendeskMessaging.logoutUser();
+    onSuccess && onSuccess();
+  } catch (err: any) {
+    onError && onError(err);
+  }
+};

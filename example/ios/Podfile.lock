@@ -213,7 +213,7 @@ PODS:
     - react-native-config/App (= 1.4.5)
   - react-native-config/App (1.4.5):
     - React-Core
-  - react-native-zendesk-messaging (0.1.0):
+  - react-native-zendesk-messaging (1.0.0):
     - React-Core
     - ZendeskSDKMessaging
   - React-perflogger (0.67.2)
@@ -438,7 +438,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 595f76eba2176ebd8817a1fffd47b84fbdab9383
   React-logger: 23de8ea0f44fa00ee77e96060273225607fd4d78
   react-native-config: 6502b1879f97ed5ac570a029961fc35ea606cd14
-  react-native-zendesk-messaging: 3a72c6d58680ed4cbc92ed14ad3b422d4adb5db1
+  react-native-zendesk-messaging: e44d8e88ecf7af04d9851ec68840afb8d3147ce3
   React-perflogger: 3c9bb7372493e49036f07a82c44c8cf65cbe88db
   React-RCTActionSheet: 052606483045a408693aa7e864410b4a052f541a
   React-RCTAnimation: 08d4cac13222bb1348c687a0158dfd3b577cdb63
