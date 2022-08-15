@@ -19,6 +19,7 @@ import zendesk.android.SuccessCallback;
 import zendesk.android.Zendesk;
 import zendesk.android.ZendeskUser;
 import zendesk.messaging.android.DefaultMessagingFactory;
+import zendesk.messaging.android.push.PushNotifications;
 
 @ReactModule(name = ZendeskMessagingModule.NAME)
 public class ZendeskMessagingModule extends ReactContextBaseJavaModule {
@@ -88,4 +89,15 @@ public class ZendeskMessagingModule extends ReactContextBaseJavaModule {
       }
     });
   }
+
+  @ReactMethod
+  public void updatePushNotificationToken(String deviceToken,Promise promise) {
+    try {
+      PushNotifications.updatePushNotificationToken(deviceToken);
+      promise.resolve("success");
+    } catch(Exception error){
+      promise.reject(error);
+    }
+  }
 }
+
