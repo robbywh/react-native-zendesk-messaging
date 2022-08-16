@@ -2,7 +2,7 @@ import ZendeskSDKMessaging
 import ZendeskSDK
 
 @objc(ZendeskMessaging)
-class ZendeskMessaging: NSObject { 
+class ZendeskMessaging: NSObject {
   @objc
   static func requiresMainQueueSetup() -> Bool {
     return true
@@ -20,7 +20,7 @@ class ZendeskMessaging: NSObject {
       }
     }
   }
-  
+
   @objc
   func showMessaging() {
     DispatchQueue.main.async {
@@ -42,7 +42,7 @@ class ZendeskMessaging: NSObject {
           resolve(user)
       case .failure(let error):
           reject("error","\(error)",nil)
-      }         
+      }
     }
   }
 
@@ -57,5 +57,15 @@ class ZendeskMessaging: NSObject {
           reject("error","\(error)",nil)
       }
     }
+  }
+
+  @objc
+  func updatePushNotificationToken(_ deviceToken:String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock){
+    do{
+      try PushNotifications.updatePushNotificationToken(deviceToken)
+      resolve("success");
+    } catch {
+      reject(error);
+   }
   }
 }
