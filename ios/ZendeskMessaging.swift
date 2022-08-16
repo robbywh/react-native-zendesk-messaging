@@ -60,12 +60,12 @@ class ZendeskMessaging: NSObject {
   }
 
   @objc
-  func updatePushNotificationToken(_ deviceToken:String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock){
+  func updatePushNotificationToken(_ deviceToken:Data, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock){
     do{
       try PushNotifications.updatePushNotificationToken(deviceToken)
       resolve("success");
     } catch {
-      reject(error);
+      reject("error","\(error)",nil)
    }
   }
 }

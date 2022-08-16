@@ -5,5 +5,5 @@ RCT_EXTERN_METHOD(initialize: (NSString *)channelKey resolver:(RCTPromiseResolve
 RCT_EXTERN_METHOD(showMessaging)
 RCT_EXTERN_METHOD(loginUser: (NSString *)token resolver:(RCTPromiseResolveBlock *)resolve rejecter: (RCTPromiseRejectBlock *)reject)
 RCT_EXTERN_METHOD(logoutUser: (RCTPromiseResolveBlock *)resolve rejecter: (RCTPromiseRejectBlock *)reject)
-RCT_EXTERN_METHOD(updatePushNotificationToken: (NSString *)deviceToken resolver:(RCTPromiseResolveBlock *)resolve rejecter: (RCTPromiseRejectBlock *)reject)
+RCT_EXTERN_METHOD(updatePushNotificationToken: (Data *)deviceToken resolver:(RCTPromiseResolveBlock *)resolve rejecter: (RCTPromiseRejectBlock *)reject)
 @end
