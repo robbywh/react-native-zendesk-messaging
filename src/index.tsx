@@ -58,3 +58,16 @@ export const logoutUser = async (
     onError && onError(err);
   }
 };
+
+export const updatePushNotificationToken = async (
+  token: string,
+  onSuccess?: () => void,
+  onError?: (err: any) => void
+) => {
+  try {
+    await ZendeskMessaging.updatePushNotificationToken(token);
+    onSuccess && onSuccess();
+  } catch (err: any) {
+    onError && onError(err);
+  }
+};
