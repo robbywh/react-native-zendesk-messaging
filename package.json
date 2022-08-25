@@ -22,6 +22,9 @@
     "!**/__mocks__"
   ],
   "scripts": {
+    "preinstall": "yarn --ignore-scripts",
+    "install": "rm -rf ./lib && yarn prepare",
+    "postinstall": "rm -rf ./node_modules",
     "test": "jest",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
