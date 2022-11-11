@@ -57,10 +57,9 @@ public class ZendeskMessagingModule extends ReactContextBaseJavaModule {
     Zendesk.getInstance().loginUser(token, new SuccessCallback<ZendeskUser>() {
       @Override
       public void onSuccess(ZendeskUser value) {
-        JSONObject jsonObject= new JSONObject();
+        RNZendeskUser serializableUser = new RNZendeskUser(value);
         try {
-            jsonObject.put("externalId", value.getExternalId());
-            promise.resolve(jsonObject.toString());
+            promise.resolve(serializableUser.asReadableMap());
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
