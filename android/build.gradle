@@ -19,10 +19,10 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion safeExtGet('ZendeskMessaging_compileSdkVersion', 29)
+    compileSdkVersion safeExtGet('compileSdkVersion', 31)
     defaultConfig {
-        minSdkVersion safeExtGet('ZendeskMessaging_minSdkVersion', 16)
-        targetSdkVersion safeExtGet('ZendeskMessaging_targetSdkVersion', 29)
+        minSdkVersion safeExtGet('minSdkVersion', 21)
+        targetSdkVersion safeExtGet('targetSdkVersion', 31)
         versionCode 1
         versionName "1.0"
 
