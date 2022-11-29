@@ -1,5 +1,6 @@
 import ZendeskSDKMessaging
 import ZendeskSDK
+import ZendeskUser
 
 @objc(ZendeskMessaging)
 class ZendeskMessaging: NSObject {
@@ -39,7 +40,8 @@ class ZendeskMessaging: NSObject {
       switch result {
       case .success(let user):
           print(user)
-          resolve(user)
+          let serializableUser = RNZendeskUser(user)
+          resolve(serializableUser.asDictionary())
       case .failure(let error):
           reject("error","\(error)",nil)
       }
