@@ -1,22 +1,23 @@
 {
-  "name": "react-native-zendesk-messaging-example",
-  "description": "Example app for react-native-zendesk-messaging",
+  "name": "ReactNativeZendeskMessagingExample",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start"
+    "start": "react-native start",
+    "pods": "pod-install --quiet"
   },
   "dependencies": {
-    "react": "17.0.2",
-    "react-native": "0.67.2",
-    "react-native-config": "^1.4.5"
+    "react": "18.2.0",
+    "react-native": "0.71.7",
+    "react-native-config": "^1.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0",
-    "@babel/runtime": "^7.17.0",
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
     "babel-plugin-module-resolver": "^4.1.0",
-    "metro-react-native-babel-preset": "^0.67.0"
+    "metro-react-native-babel-preset": "0.73.9"
   }
 }
