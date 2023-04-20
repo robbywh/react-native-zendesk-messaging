@@ -417,7 +417,7 @@ PODS:
     - React-jsi (= 0.71.7)
     - React-logger (= 0.71.7)
     - React-perflogger (= 0.71.7)
-  - robbywh-react-native-zendesk-messaging (1.0.0):
+  - robbywh-react-native-zendesk-messaging (1.0.5):
     - React-Core
     - ZendeskSDKMessaging
   - SocketRocket (0.6.0)
@@ -663,7 +663,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 08f132cad9896458776f37c112e71d60aef1c6ae
   React-runtimeexecutor: c5c89f8f543842dd864b63ded1b0bbb9c9445328
   ReactCommon: dbfbe2f7f3c5ce4ce44f43f2fd0d5950d1eb67c5
-  robbywh-react-native-zendesk-messaging: ad7698fc8a71b956abc413cc874f9fd1e770cf0b
+  robbywh-react-native-zendesk-messaging: 06cee745fef34e662f4bc405cc1675bb26d5f256
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: d56980c8914db0b51692f55533409e844b66133c
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
