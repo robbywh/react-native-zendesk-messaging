@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  ZendeskMessagingExample
+//  ReactNativeZendeskMessagingExample
 //
 
 import Foundation

@@ -6,7 +6,7 @@ import {
   showMessaging,
   loginUser,
   logoutUser,
-} from '@flashcoffee/react-native-zendesk-messaging';
+} from '@robbywh/react-native-zendesk-messaging';
 
 const App = () => {
   const [loadingInit, setLoadingInit] = React.useState(true);
@@ -17,7 +17,7 @@ const App = () => {
         ? Config.CHANNEL_KEY_ANDROID
         : Config.CHANNEL_KEY_IOS;
     initialize(
-      channelKey,
+      channelKey || '',
       () => {
         setLoadingInit(false);
       },
@@ -30,7 +30,7 @@ const App = () => {
 
   const login = () => {
     loginUser(
-      Config.JWT_TOKEN,
+      Config.JWT_TOKEN || '',
       (user) => {
         setIsLogin(true);
         console.log('isLoading', user);
