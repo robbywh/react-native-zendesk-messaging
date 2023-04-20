@@ -28,7 +28,7 @@ import Config from 'react-native-config';
 import {
   initialize,
   showMessaging,
-} from '@flashcoffee/react-native-zendesk-messaging';
+} from '@robbywh/react-native-zendesk-messaging';
 const App = () => {
   React.useEffect(() => {
     initialize(
