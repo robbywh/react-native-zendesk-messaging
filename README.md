@@ -8,6 +8,17 @@ Zendesk Messaging for React Native
 yarn add @robbywh/react-native-zendesk-messaging
 ```
 
+For the Android platform, don't forget to add this script inside `android/build.gradle`
+```
+allprojects {
+    repositories {
+        maven {
+            url "https://zendesk.jfrog.io/artifactory/repo"
+        }
+    }
+}
+```
+
 ## Usage
 
 ```js
