@@ -20,6 +20,17 @@ class ZendeskMessaging: NSObject {
       }
     }
   }
+    
+  @objc
+  func getUnreadMessageCount(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+    DispatchQueue.main.async {
+        guard let messageCount = Zendesk.instance?.messaging?.getUnreadMessageCount()
+        else {
+            return reject("error", "Zendesk chat controller not available", nil)
+        }
+        resolve(messageCount)
+    }
+  }
 
   @objc
   func showMessaging() {
@@ -28,7 +39,7 @@ class ZendeskMessaging: NSObject {
         return }
       let viewController = RCTPresentedViewController();
       viewController?.present(zendeskController, animated: true) {
-        print("Messaging have shown")
+        print("Zendesk Messaging is now showing.")
       }
     }
   }
