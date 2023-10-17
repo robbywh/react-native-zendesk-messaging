@@ -50,6 +50,16 @@ public class ReactNativeZendeskMessagingModule extends ReactContextBaseJavaModul
   }
 
   @ReactMethod
+  public void getUnreadMessageCount(Promise promise) {
+    try {
+      int unreadMsgCount = Zendesk.getInstance().getMessaging().getUnreadMessageCount();
+      promise.resolve(unreadMsgCount);
+    } catch (Exception e) {
+      promise.reject("Zendesk Error", e.getMessage());
+    }
+  }
+
+  @ReactMethod
   public void loginUser(String token, Promise promise) {
     Zendesk.getInstance().loginUser(token, new SuccessCallback<ZendeskUser>() {
       @Override

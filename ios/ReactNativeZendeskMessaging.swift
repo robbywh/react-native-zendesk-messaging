@@ -20,6 +20,17 @@ class ZendeskMessaging: NSObject {
       }
     }
   }
+    
+  @objc
+  func getUnreadMessageCount(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+    DispatchQueue.main.async {
+        guard let messageCount = Zendesk.instance?.messaging?.getUnreadMessageCount()
+        else {
+            return reject("error", "Zendesk chat controller not available", nil)
+        }
+        resolve(messageCount)
+    }
+  }
 
   @objc
   func showMessaging() {
@@ -28,7 +39,7 @@ class ZendeskMessaging: NSObject {
         return }
       let viewController = RCTPresentedViewController();
       viewController?.present(zendeskController, animated: true) {
-        print("Messaging have shown")
+        print("Zendesk Messaging is now showing.")
       }
     }
   }
@@ -60,16 +71,28 @@ class ZendeskMessaging: NSObject {
     }
   }
 
-  @objc
-  func updatePushNotificationToken(_ deviceToken:String,
-    resolver resolve: @escaping RCTPromiseResolveBlock,
-    rejecter reject: @escaping RCTPromiseRejectBlock
-  ){
-    do{
-      try PushNotifications.updatePushNotificationToken(Data(deviceToken.utf8))
-      resolve("success");
-    } catch {
-      reject("error","\(error)",nil)
+    @objc
+    func updatePushNotificationToken(_ deviceToken:String,
+      resolver resolve: @escaping RCTPromiseResolveBlock,
+      rejecter reject: @escaping RCTPromiseRejectBlock
+    ){
+        let len = deviceToken.count / 2
+        var data = Data(capacity: len)
+        var i = deviceToken.startIndex
+        for _ in 0..<len {
+          let j = deviceToken.index(i, offsetBy: 2)
+          let bytes = deviceToken[i..<j]
+          if var num = UInt8(bytes, radix: 16) {
+              data.append(&num, count: 1)
+          }
+          i = j
+        }
+      do{
+        try
+          PushNotifications.updatePushNotificationToken(data)
+          resolve("success");
+      } catch {
+          reject("error","\(error)",nil)
+      }
     }
-  }
 }
