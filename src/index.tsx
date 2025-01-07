@@ -9,13 +9,13 @@ const LINKING_ERROR =
 const ZendeskMessaging = NativeModules.ZendeskMessaging
   ? NativeModules.ZendeskMessaging
   : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+    {},
+    {
+      get() {
+        throw new Error(LINKING_ERROR);
+      },
+    }
+  );
 
 export const initialize = async (
   channelKey: string,
@@ -32,6 +32,18 @@ export const initialize = async (
 
 export const showMessaging = () => {
   return ZendeskMessaging.showMessaging();
+};
+
+export const getUnreadMessageCount = async (
+  onSuccess?: (unreadMessageCount: number) => void,
+  onError?: (err: any) => void
+) => {
+  try {
+    const messageCount = await ZendeskMessaging.getUnreadMessageCount();
+    onSuccess && onSuccess(messageCount);
+  } catch (err: any) {
+    onError && onError(err);
+  }
 };
 
 export const loginUser = async (
