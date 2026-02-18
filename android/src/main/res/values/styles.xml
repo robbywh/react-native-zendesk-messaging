@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="ZendeskTheme" parent="Theme.ZendeskMessaging">
+    <item name="android:statusBarColor">@android:color/white</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:fitsSystemWindows">true</item>
+  </style>
+</resources>
